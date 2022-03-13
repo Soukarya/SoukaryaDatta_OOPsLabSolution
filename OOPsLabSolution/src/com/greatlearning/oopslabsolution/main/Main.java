@@ -67,7 +67,7 @@ public class Main {
 					validEmployeeExist = true;
 					break;
 				case 2:
-					departmentName = "admin";
+					departmentName = "adm";
 					validEmployeeExist = true;
 					break;
 				case 3:
@@ -75,7 +75,7 @@ public class Main {
 					validEmployeeExist = true;
 					break;
 				case 4:
-					departmentName = "legal";
+					departmentName = "lgl";
 					validEmployeeExist = true;
 					break;
 				default:
