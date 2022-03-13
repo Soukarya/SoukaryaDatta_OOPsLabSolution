@@ -18,9 +18,14 @@ public class CredentialService {
 		}
 	}
 	
+	private static String removeWhiteSpaces(String s) {
+		
+		return "";
+	}
+	
 	private String generateEmailAddress(Employee e) {
 		if(e!=null) {
-			return e.getFirstName().toLowerCase()+e.getLastName().toLowerCase()+"@"+e.getDepartmentName()+"."+Employee.COMPANY_NAME.toLowerCase()+".com";
+			return e.getFirstName().toLowerCase()+e.getLastName().toLowerCase()+"@"+e.getDepartmentName()+"."+Employee.COMPANY_NAME.toLowerCase().trim().replace(" ", "")+".com";
 		}else {
 			throw new RuntimeException("Employee details cannot be null");
 		}
