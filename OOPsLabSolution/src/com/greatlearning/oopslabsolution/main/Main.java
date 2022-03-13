@@ -7,8 +7,15 @@
  * Date : March 13, 2022
  * Version : 1.0.4
  * 
- * While importing from git, please configure the JRE build path
+ * While importing from Git, please configure the appropriate JRE build path
  * 
+ * 1> Right click on the project
+ * 2> Build Path
+ * 3> Configure Build Path
+ * 4> Click on Java Build Path from the left window
+ * 5> Select 'Order and Export' tab
+ * 6> Select appropriate JRE
+ * 7> Click on 'Apply and Close'
  */
 
 package com.greatlearning.oopslabsolution.main;
