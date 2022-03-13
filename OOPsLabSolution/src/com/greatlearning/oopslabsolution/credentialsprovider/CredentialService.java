@@ -41,7 +41,7 @@ public class CredentialService {
 		String password = "";
 		char upper = ' ', lower = ' ', digit = ' ', symbol = ' ';
 		boolean hasUpper = false, hasLower = false, hasDigit = false, hasSymbol = false;
-		String symbols = "~`!@#$%^&*()- _+=|\\}]{[:;\"\'?/>.<,";
+		String symbols = "~`!@#$%^&*()-_+=|\\}]{[:;\"\'?/>.<,";
 		int len = 8;// r.nextInt(8,9);//length of the password, if we want we can make it dynamic as
 					// well
 		int value = -1;
@@ -95,7 +95,6 @@ public class CredentialService {
 					i++;
 				}
 			}
-
 		}
 		return password;
 	}
