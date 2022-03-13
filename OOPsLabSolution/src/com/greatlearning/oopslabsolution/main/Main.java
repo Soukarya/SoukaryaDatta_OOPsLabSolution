@@ -21,25 +21,23 @@ import com.greatlearning.oopslabsolution.employee.Employee;
 public class Main {
 
 	private static String getTitleCase(String s) {
-		if(s.length()==1) {
+		if (s.length() == 1) {
 			return s.toUpperCase();
-		}
-		else if(s.length()>1) {
+		} else if (s.length() > 1) {
 			return ((char) (s.charAt(0) - 32)) + s.substring(1);
-		}else {
+		} else {
 			throw new RuntimeException("Please enter a valid name");
 		}
 	}
 
 	public static void main(String[] args) {
 
-		int choice=0;
-		String departmentName = "", firstName="", lastName = "";
+		int choice = 0;
+		String departmentName = "", firstName = "", lastName = "";
 		Employee emp = null;
 		CredentialService cp = null;
 		boolean validEmployeeExist = false;
 		Scanner sc = new Scanner(System.in);
-		
 
 		do {
 			System.out.println("Please enter the department from the following");
@@ -49,18 +47,17 @@ public class Main {
 			System.out.println("4. Legal");
 			choice = sc.nextInt();
 			System.out.println();
-			//Creating employee object
+			// Creating employee object
 			try {
 				emp = new Employee("Soukarya", "Datta");
-			} catch(IllegalArgumentException e) {
+			} catch (IllegalArgumentException e) {
 				System.err.println(e.getMessage());
-			}finally {
 				sc.close();
 			}
 			if (emp != null) {
 				firstName = Main.getTitleCase(emp.getFirstName().toLowerCase());
-				//lastName = Main.getTitleCase(emp.getLastName().toLowerCase());
-				
+				// lastName = Main.getTitleCase(emp.getLastName().toLowerCase());
+
 				switch (choice) {
 				case 1:
 					departmentName = "tech";
@@ -83,7 +80,7 @@ public class Main {
 				}
 			}
 		} while (!(choice >= 1 && choice <= 4));
-		
+
 		if (validEmployeeExist) {
 			emp.setDepartmentName(departmentName);
 			cp = new CredentialService(emp);
@@ -95,7 +92,7 @@ public class Main {
 		}
 		emp = null;
 		cp = null;
-		if(sc!=null)
+		if (sc != null)
 			sc.close();
 
 	}
