@@ -1,15 +1,15 @@
 package com.greatlearning.oopslabsolution.employee;
 
-import com.greatlearning.oopslabsolution.credentialsprovider.CredentialsProvider;
+import com.greatlearning.oopslabsolution.credentialsprovider.CredentialService;
 
 public class Employee {
 
-	public static final String COMPANY_NAME = "Abc";
+	public static final String COMPANY_NAME = "Great Learning";
 	
 	private String firstName;
 	private String lastName;
 	private String departmentName;
-	private CredentialsProvider credentialsProvider;
+	private CredentialService credentialsProvider;
 	
 	//public parameterized Constructor
 	public Employee(String firstName, String lastName) {
@@ -54,11 +54,11 @@ public class Employee {
 		return departmentName;
 	}
 	
-	public void setCredentialsProvider(CredentialsProvider credentialsProvider) {
+	public void setCredentialsProvider(CredentialService credentialsProvider) {
 		this.credentialsProvider = credentialsProvider;
 	}
 	
-	public CredentialsProvider getCredentialsProvider() {
+	public CredentialService getCredentialsProvider() {
 		return credentialsProvider;
 	}
 
