@@ -5,7 +5,7 @@
  * JRE: C:\Users\Soukarya Datta\eclipse\java-2021-12\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.1.v20211116-1657\jre
  * Eclipse version: 2021-12
  * Date : March 13, 2022
- * Version : 1.0.2
+ * Version : 1.0.4
  * 
  * While importing from git, please configure the JRE build path
  * 
@@ -20,6 +20,7 @@ import com.greatlearning.oopslabsolution.employee.Employee;
 
 public class Main {
 
+	//To get title case of a string
 	private static String getTitleCase(String s) {
 		if (s.length() == 1) {
 			return s.toUpperCase();

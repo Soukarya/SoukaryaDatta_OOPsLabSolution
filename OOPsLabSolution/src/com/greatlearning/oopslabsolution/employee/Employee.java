@@ -4,6 +4,7 @@ import com.greatlearning.oopslabsolution.credentialsprovider.CredentialService;
 
 public class Employee {
 
+	//COMPANY_NAME is constant within an organization
 	public static final String COMPANY_NAME = "Great Learning";
 
 	private String firstName;
@@ -25,7 +26,6 @@ public class Employee {
 	// Method
 
 	// This method is mainly to check whether a given string contains only letters
-	// or not
 	private boolean nameValidityCheck(String name) {
 
 		for (char ch : name.toCharArray()) {

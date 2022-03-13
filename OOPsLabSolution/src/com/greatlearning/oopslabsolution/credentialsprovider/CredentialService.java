@@ -66,8 +66,7 @@ public class CredentialService {
 			} else if (value == 3) {
 				// symbols
 				hasSymbol = true;
-				symbol = symbols.charAt(r.nextInt(0, symbols.length()));// selecting random character for special
-																		// characters
+				symbol = symbols.charAt(r.nextInt(0, symbols.length()));// selecting random character for special characters
 				password += symbol;
 			}
 			if (i == len / 2) {
