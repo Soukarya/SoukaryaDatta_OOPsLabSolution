@@ -11,14 +11,29 @@ public class Employee {
 	private String departmentName;
 	private CredentialsProvider credentialsProvider;
 	
-	
+	//public parameterized Constructor
 	public Employee(String firstName, String lastName) {
 		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.credentialsProvider = new CredentialsProvider(this);
+		if(nameValidityCheck(firstName) && nameValidityCheck(lastName)) {
+			this.firstName = firstName;
+			this.lastName = lastName;
+		}else {
+			throw new IllegalArgumentException("Name:"+firstName+" "+lastName+" should contain only letters");
+		}
 	}
 	
+	//Method
+	private boolean nameValidityCheck(String name) {
+		
+		for(char ch : name.toCharArray()) {
+			if(!Character.isLetter(ch)) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	//Getters and setters
 	public String getFirstName() {
 		return this.firstName;
 	}
@@ -28,16 +43,20 @@ public class Employee {
 	}
 	
 	public void setDepartmentName(String departmentName) {
-		this.departmentName = departmentName;
+		if(departmentName.length()>0) {
+			this.departmentName = departmentName;
+		}else {
+			throw new IllegalArgumentException("Department name cannot be blank or null");
+		}
 	}
 	
 	public String getDepartmentName() {
 		return departmentName;
 	}
 	
-	//public void setCredentialsProvider(CredentialsProvider credentialsProvider) {
-	//	this.credentialsProvider = credentialsProvider;
-	//}
+	public void setCredentialsProvider(CredentialsProvider credentialsProvider) {
+		this.credentialsProvider = credentialsProvider;
+	}
 	
 	public CredentialsProvider getCredentialsProvider() {
 		return credentialsProvider;

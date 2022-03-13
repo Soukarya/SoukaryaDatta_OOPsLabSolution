@@ -1,3 +1,13 @@
+/*
+ * 
+ * Author: Soukarya Datta
+ * JDK: 17 (C:\Program Files\Java\jdk-17.0.2\bin)
+ * JRE: C:\Users\Soukarya Datta\eclipse\java-2021-12\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.1.v20211116-1657\jre
+ * Eclipse version: 2021-12
+ * Date : March 13, 2022
+ * Version : 1.0.1
+ */
+
 package com.greatlearning.oopslabsolution.main;
 
 import java.util.Scanner;
@@ -29,8 +39,13 @@ public class Main {
 			System.out.println("4. Legal");
 			choice = sc.nextInt();
 			//Creating employee object
-			emp = new Employee("Soukarya", "Datta");
-
+			try {
+				emp = new Employee("Soukarya", "Datta");
+			} catch(IllegalArgumentException e) {
+				System.err.println(e.getMessage());
+			}finally {
+				sc.close();
+			}
 			if (emp != null) {
 				firstName = Main.getTitleCase(emp.getFirstName().toLowerCase());
 				//lastName = Main.getTitleCase(emp.getLastName().toLowerCase());
@@ -62,11 +77,13 @@ public class Main {
 			emp.setDepartmentName(departmentName);
 			cp = new CredentialsProvider(emp);
 			if (cp != null) {
-				//emp.setCredentialsProvider(cp);
+				emp.setCredentialsProvider(cp);
 				System.out.println("Dear " + firstName + " your generated credentials are as follows");
-				cp.showCredentials();
+				emp.getCredentialsProvider().showCredentials();
 			}
 		}
+		emp = null;
+		cp = null;
 		if(sc!=null)
 			sc.close();
 
