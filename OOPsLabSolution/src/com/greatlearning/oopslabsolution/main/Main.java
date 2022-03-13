@@ -58,7 +58,7 @@ public class Main {
 			System.out.println();
 			// Creating employee object
 			try {
-				emp = new Employee(null, "Datta");
+				emp = new Employee("Soukarya", "Datta");
 			} catch (IllegalArgumentException e) {
 				System.err.println(e.getMessage());
 				sc.close();
