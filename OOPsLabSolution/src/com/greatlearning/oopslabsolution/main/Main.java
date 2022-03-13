@@ -42,7 +42,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		int choice = 0;
-		String departmentName = "", firstName = "", lastName = "";
+		String departmentName = "", firstName = "";
 		Employee emp = null;
 		CredentialService cp = null;
 		boolean validEmployeeExist = false;
@@ -65,8 +65,7 @@ public class Main {
 			}
 			if (emp != null) {
 				firstName = Main.getTitleCase(emp.getFirstName().toLowerCase());
-				// lastName = Main.getTitleCase(emp.getLastName().toLowerCase());
-
+				
 				switch (choice) {
 				case 1:
 					departmentName = "tech";

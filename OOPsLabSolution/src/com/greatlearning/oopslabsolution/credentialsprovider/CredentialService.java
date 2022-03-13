@@ -38,12 +38,11 @@ public class CredentialService {
 	private String generatePassword() {
 
 		Random r = new Random();
-		String password = "";
 		char upper = ' ', lower = ' ', digit = ' ', symbol = ' ';
 		boolean hasUpper = false, hasLower = false, hasDigit = false, hasSymbol = false;
 		String symbols = "~`!@#$%^&*()-_+=|\\}]{[:;\"\'?/>.<,";
-		int len = 8;// r.nextInt(8,9);//length of the password, if we want we can make it dynamic as
-					// well
+		int len = 8;// r.nextInt(8,9);//length of the password, if we want we can make it dynamic
+		StringBuilder password = new StringBuilder(len);
 		int value = -1;
 
 		for (int i = 1; i <= len; i++) {
@@ -52,51 +51,52 @@ public class CredentialService {
 				// upper
 				hasUpper = true;
 				upper = (char) r.nextInt(65, 90 + 1);// selecting random character between A and Z
-				password += upper;
+				password.append(upper);
 			} else if (value == 1) {
 				// lower
 				hasLower = true;
 				lower = (char) r.nextInt(97, 122 + 1);// selecting random character between a and z
-				password += lower;
+				password.append(lower);
 			} else if (value == 2) {
 				// digit
 				hasDigit = true;
 				digit = (char) r.nextInt(48, 57 + 1);// selecting random character between 0 and 9
-				password += digit;
+				password.append(digit);
 			} else if (value == 3) {
 				// symbols
 				hasSymbol = true;
 				symbol = symbols.charAt(r.nextInt(0, symbols.length()));// selecting random character for special characters
-				password += symbol;
+				password.append(symbol);
 			}
 			if (i == len / 2) {
 				if (!hasUpper) {
 					hasUpper = true;
 					upper = (char) r.nextInt(65, 90 + 1);
-					password += upper;
+					password.append(upper);
 					i++;
 				}
 				if (!hasLower) {
 					hasLower = true;
 					lower = (char) r.nextInt(97, 122 + 1);
-					password += lower;
+					password.append(lower);
 					i++;
 				}
 				if (!hasDigit) {
 					hasDigit = true;
 					digit = (char) r.nextInt(48, 57 + 1);
-					password += digit;
+					password.append(digit);
 					i++;
 				}
 				if (!hasSymbol) {
 					hasSymbol = true;
 					symbol = symbols.charAt(r.nextInt(0, symbols.length()));
-					password += symbol;
+					password.append(symbol);
 					i++;
 				}
 			}
 		}
-		return password;
+		
+		return password.toString();
 	}
 
 	public void showCredentials() {
