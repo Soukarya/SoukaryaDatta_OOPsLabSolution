@@ -104,7 +104,6 @@ public class Main {
 		cp = null;
 		if (sc != null)
 			sc.close();
-
 	}
 
 }

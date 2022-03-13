@@ -48,7 +48,7 @@ public class Employee {
 	}
 
 	public void setDepartmentName(String departmentName) {
-		if (departmentName.length() > 0) {
+		if (departmentName!= null && departmentName.length() > 0) {
 			this.departmentName = departmentName;
 		} else {
 			throw new IllegalArgumentException("Department name cannot be an empty string or null");
