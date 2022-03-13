@@ -15,7 +15,7 @@ public class Employee {
 	// public parameterized Constructor
 	public Employee(String firstName, String lastName) {
 		super();
-		if(firstName.length()>0 && lastName.length()>0) {
+		if((firstName!= null && lastName!= null) && (firstName.length()>0 && lastName.length()>0)) {
 			if (nameValidityCheck(firstName) && nameValidityCheck(lastName)) {
 				this.firstName = firstName;
 				this.lastName = lastName;
@@ -23,7 +23,7 @@ public class Employee {
 				throw new IllegalArgumentException("Name:" + firstName + " " + lastName + " should contain only letters");
 			}
 		} else {
-			throw new IllegalArgumentException("Name cannot be an empty string");
+			throw new IllegalArgumentException("Name cannot be an empty string or null");
 		}
 	}
 
