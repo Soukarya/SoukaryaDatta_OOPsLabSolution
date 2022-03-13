@@ -16,6 +16,7 @@
  * 5> Select 'Order and Export' tab
  * 6> Select appropriate JRE
  * 7> Click on 'Apply and Close'
+ * 
  */
 
 package com.greatlearning.oopslabsolution.main;
@@ -98,6 +99,8 @@ public class Main {
 				emp.getCredentialsProvider().showCredentials();
 			}
 		}
+		
+		//Closing all the necessary resources
 		emp = null;
 		cp = null;
 		if (sc != null)
