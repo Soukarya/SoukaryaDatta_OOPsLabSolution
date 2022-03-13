@@ -15,15 +15,17 @@ public class Employee {
 	// public parameterized Constructor
 	public Employee(String firstName, String lastName) {
 		super();
-		if (nameValidityCheck(firstName) && nameValidityCheck(lastName)) {
-			this.firstName = firstName;
-			this.lastName = lastName;
+		if(firstName.length()>0 && lastName.length()>0) {
+			if (nameValidityCheck(firstName) && nameValidityCheck(lastName)) {
+				this.firstName = firstName;
+				this.lastName = lastName;
+			} else {
+				throw new IllegalArgumentException("Name:" + firstName + " " + lastName + " should contain only letters");
+			}
 		} else {
-			throw new IllegalArgumentException("Name:" + firstName + " " + lastName + " should contain only letters");
+			throw new IllegalArgumentException("Name cannot be an empty string");
 		}
 	}
-
-	// Method
 
 	// This method is mainly to check whether a given string contains only letters
 	private boolean nameValidityCheck(String name) {
@@ -49,7 +51,7 @@ public class Employee {
 		if (departmentName.length() > 0) {
 			this.departmentName = departmentName;
 		} else {
-			throw new IllegalArgumentException("Department name cannot be blank or null");
+			throw new IllegalArgumentException("Department name cannot be an empty string or null");
 		}
 	}
 
@@ -58,7 +60,9 @@ public class Employee {
 	}
 
 	public void setCredentialsProvider(CredentialService credentialsProvider) {
-		this.credentialsProvider = credentialsProvider;
+		if(credentialsProvider != null) {
+			this.credentialsProvider = credentialsProvider;
+		}
 	}
 
 	public CredentialService getCredentialsProvider() {
