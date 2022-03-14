@@ -28,7 +28,7 @@ import com.greatlearning.oopslabsolution.employee.Employee;
 
 public class Main {
 
-	//To get title case of a string
+	// To get title case of a string
 	private static String getTitleCase(String s) {
 		if (s.length() == 1) {
 			return s.toUpperCase();
@@ -64,26 +64,26 @@ public class Main {
 			}
 			if (emp != null) {
 				firstName = Main.getTitleCase(emp.getFirstName().toLowerCase());
-				
-				switch (choice) {
-				case 1:
-					departmentName = "tech";
-					validEmployeeExist = true;
-					break;
-				case 2:
-					departmentName = "adm";
-					validEmployeeExist = true;
-					break;
-				case 3:
-					departmentName = "hr";
-					validEmployeeExist = true;
-					break;
-				case 4:
-					departmentName = "lgl";
-					validEmployeeExist = true;
-					break;
-				default:
-					System.err.println("Please enter a number between 1 and 4 inclusive\n");
+
+				try {
+					departmentName = switch (choice) {
+					case 1:
+						validEmployeeExist = true;
+						yield "tech";
+					case 2:
+						validEmployeeExist = true;
+						yield "adm";
+					case 3:
+						validEmployeeExist = true;
+						yield "hr";
+					case 4:
+						validEmployeeExist = true;
+						yield "lgl";
+					default:
+						throw new IllegalArgumentException("Please enter a number between 1 and 4 inclusive\n");
+					};
+				} catch (IllegalArgumentException e) {
+					System.err.println(e.getMessage());
 				}
 			}
 		} while (!(choice >= 1 && choice <= 4));
@@ -97,8 +97,8 @@ public class Main {
 				emp.getCredentialsProvider().showCredentials();
 			}
 		}
-		
-		//Closing all the necessary resources
+
+		// Closing all the necessary resources
 		emp = null;
 		cp = null;
 		if (sc != null)
