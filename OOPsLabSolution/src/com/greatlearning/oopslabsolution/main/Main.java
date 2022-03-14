@@ -61,7 +61,6 @@ public class Main {
 				emp = new Employee("Soukarya", "Datta");
 			} catch (IllegalArgumentException e) {
 				System.err.println(e.getMessage());
-				sc.close();
 			}
 			if (emp != null) {
 				firstName = Main.getTitleCase(emp.getFirstName().toLowerCase());
